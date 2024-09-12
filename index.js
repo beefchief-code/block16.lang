@@ -15,6 +15,9 @@
  */
 function logNames(items) {
   // TODO: use `forEach`
+  INVENTORY.forEach((item) => {
+console.log (item.name)    
+  });
 }
 
 /**
