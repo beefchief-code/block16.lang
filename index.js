@@ -96,6 +96,11 @@ function countItems(items) {
  */
 function calculateTotalPrice(items) {
   // TODO: use `reduce`
+  let initialValue = 0;
+  let sum = items.reduce(function (accumulator, curValue){
+    return accumulator + curValue.price;
+  }, initialValue);
+  return sum;
 }
 
 // --------------------- DO NOT CHANGE THE CODE BELOW ------------------------ //
