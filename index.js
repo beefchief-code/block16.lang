@@ -15,13 +15,12 @@
  */
 function logNames(items) {
   // TODO: use `forEach`
-  items = [];
-  INVENTORY.forEach((item) => {
-    items.push(item.name);
-       
+  itemNames = [];
+  items.forEach((item) => {
+    itemNames.push(item.name);
       });
-      console.log(items);
-      return items; 
+      console.log(itemNames);
+      return itemNames; 
     }
    
 
@@ -61,11 +60,11 @@ return found;
 function getItemPriceByName(items, name) {
   // TODO: use a loop!
   itemPrice = [];
-  items.forEach((item) => {
-    if (name === item.name);
-    itemPrice.push(item.price);
-    
-  });
+  for ( const item of items)
+    if (name == item.name){
+      itemPrice.push(item.price);
+      return itemPrice;
+    }
   return itemPrice;
 }
 
@@ -88,6 +87,11 @@ function getItemsByCategory(items, category) {
  */
 function countItems(items) {
   // TODO: use `reduce`
+  let startCount = 0;
+  let totalCount = items.reduce(function (acc, curCount){
+    return acc + curCount.quantity;
+  }, startCount);
+    return totalCount;
 }
 
 /**
@@ -97,10 +101,10 @@ function countItems(items) {
 function calculateTotalPrice(items) {
   // TODO: use `reduce`
   let initialValue = 0;
-  let sum = items.reduce(function (accumulator, curValue){
+  let sumPrice = items.reduce(function (accumulator, curValue){
     return accumulator + curValue.price;
   }, initialValue);
-  return sum;
+  return sumPrice;
 }
 
 // --------------------- DO NOT CHANGE THE CODE BELOW ------------------------ //
