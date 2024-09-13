@@ -15,7 +15,15 @@
  */
 function logNames(items) {
   // TODO: use `forEach`
-}
+  itemNames = [];
+  items.forEach((item) => {
+    itemNames.push(item.name);
+      });
+      console.log(itemNames);
+      return itemNames; 
+    }
+   
+
 
 /**
  * @param {Item[]} items - array of items
@@ -23,6 +31,14 @@ function logNames(items) {
  */
 function getUppercaseNames(items) {
   // TODO: use `map`
+  const capNames = [];
+  for ( let i = 0; i < items.length; i++){
+    items.map((element) => {
+      capNames.push(element.name.toUpperCase());
+    });
+    return capNames;
+  }
+
 }
 
 /**
@@ -32,6 +48,8 @@ function getUppercaseNames(items) {
  */
 function getItemById(items, id) {
   // TODO: use `find`
+const found = items.find(item => item.id === id ).name;
+return found;
 }
 
 /**
@@ -41,6 +59,13 @@ function getItemById(items, id) {
  */
 function getItemPriceByName(items, name) {
   // TODO: use a loop!
+  itemPrice = [];
+  for ( const item of items)
+    if (name == item.name){
+      itemPrice.push(item.price);
+      return itemPrice;
+    }
+  return itemPrice;
 }
 
 /**
@@ -50,6 +75,10 @@ function getItemPriceByName(items, name) {
  */
 function getItemsByCategory(items, category) {
   // TODO: use `filter`
+  let cat = [];
+  const itemCat = items.filter((item) => item.category === category);
+  itemCat.forEach((item) => cat.push(item.name));
+  return cat;
 }
 
 /**
@@ -58,6 +87,11 @@ function getItemsByCategory(items, category) {
  */
 function countItems(items) {
   // TODO: use `reduce`
+  let startCount = 0;
+  let totalCount = items.reduce(function (acc, curCount){
+    return acc + curCount.quantity;
+  }, startCount);
+    return totalCount;
 }
 
 /**
@@ -66,6 +100,11 @@ function countItems(items) {
  */
 function calculateTotalPrice(items) {
   // TODO: use `reduce`
+  let initialValue = 0;
+  let sumPrice = items.reduce(function (accumulator, curValue){
+    return accumulator + curValue.price;
+  }, initialValue);
+  return sumPrice;
 }
 
 // --------------------- DO NOT CHANGE THE CODE BELOW ------------------------ //
