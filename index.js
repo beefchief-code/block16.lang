@@ -60,6 +60,13 @@ return found;
  */
 function getItemPriceByName(items, name) {
   // TODO: use a loop!
+  itemPrice = [];
+  items.forEach((item) => {
+    if (name === item.name);
+    itemPrice.push(item.price);
+    
+  });
+  return itemPrice;
 }
 
 /**
@@ -69,6 +76,10 @@ function getItemPriceByName(items, name) {
  */
 function getItemsByCategory(items, category) {
   // TODO: use `filter`
+  let cat = [];
+  const itemCat = items.filter((item) => item.category === category);
+  itemCat.forEach((item) => cat.push(item.name));
+  return cat;
 }
 
 /**
